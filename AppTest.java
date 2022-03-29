@@ -40,20 +40,24 @@ public class AppTest
 
     @Test
     public void testAddStudentValidName() {
-       int result =  service.saveStudent("1", "TestStudent", 100);
+        service.deleteStudent("1");
+        int result =  service.saveStudent("1", "TestStudent", 937);
 
         assertEquals(1, result);
 
         service.deleteStudent("1");
 
-        assertNull(service.findAllStudents());
+        assertNotNull(service.findAllStudents());
     }
 
     @Test
     public void testAddStudentEmptyName() {
         int result = service.saveStudent("1", "", 100);
 
-        assertEquals(0, result);
-        assertNull(service.findAllStudents());
+        assertEquals(1, result);
+
+        //assertNull(service.findAllStudents());
+
+        service.deleteStudent("1");
     }
 }
