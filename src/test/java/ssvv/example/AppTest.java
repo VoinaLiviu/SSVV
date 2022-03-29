@@ -52,13 +52,50 @@ public class AppTest
 
     @Test
     public void testAddStudentEmptyName() {
-        int result = service.saveStudent("1", "", 100);
+        int result = service.saveStudent("1", "", 937);
 
         assertEquals(1, result);
 
         //assertNull(service.findAllStudents());
 
         service.deleteStudent("1");
+    }
+
+    @Test
+    public void testAddStudentValidId() {
+        int result = service.saveStudent("1", "TestStudent", 937);
+
+        assertEquals(1, result);
+
+        service.deleteStudent("1");
+
+        assertNotNull(service.findAllStudents());
+    }
+
+    @Test
+    public void testAddStudentEmptyId() {
+        int result = service.saveStudent("", "", 937);
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testAddStudentValidGroup() {
+        int result = service.saveStudent("1", "TestStudent", 937);
+
+        assertEquals(1, result);
+
+        service.deleteStudent("1");
+
+        assertNotNull(service.findAllStudents());
+
+    }
+
+    @Test
+    public void testAddStudentInvalidGroup() {
+        int result = service.saveStudent("1", "", 100);
+
+        assertEquals(1, result);
     }
 
     @Test
