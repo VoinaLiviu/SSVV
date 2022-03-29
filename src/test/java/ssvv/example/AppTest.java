@@ -60,4 +60,24 @@ public class AppTest
 
         service.deleteStudent("1");
     }
+
+    @Test
+    public void testAddAssignmentValidDeadline() {
+        int result = service.saveTema("1", "TestAssignment", 12, 10);
+
+        assertEquals(1, result);
+
+        service.deleteTema("1");
+
+        assertNotNull(service.findAllTeme());
+    }
+
+    @Test
+    public void testAddAssignmentInvalidDeadline() {
+        int result = service.saveTema("1", "TestAssignment", 15, 10);
+
+        assertEquals(1, result);
+
+        service.deleteTema("1");
+    }
 }
