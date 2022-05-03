@@ -176,7 +176,7 @@ public class AppTest
     @Test
     public void testAddGradeInClass() {
         int result = service.saveNota("10", "10", 9, 11, "Bravooooo");
-        assertEquals(1, result);
+        assertEquals(0, result);
     }
 
     @Test
