@@ -142,14 +142,17 @@ public class AppTest
 
     @Test
     public void testAddGradeIntegration() {
-        int result = service.saveStudent("7", "Jordan", 937);
+        int result = service.saveStudent("9", "Jordan", 937);
         assertEquals(1, result);
 
-        int result1 = service.saveTema("7", "Assignment7", 12, 10);
+        int result1 = service.saveTema("9", "Assignment7", 12, 10);
         assertEquals(1, result1);
 
-        int result2 = service.saveNota("7", "7", 9, 11, "Good Job!");
+        int result2 = service.saveNota("9", "9", 9, 11, "Good Job!");
         assertEquals(1, result2);
+
+        service.deleteStudent("9");
+        service.deleteTema("9");
     }
 
 }
