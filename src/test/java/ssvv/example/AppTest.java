@@ -155,4 +155,42 @@ public class AppTest
         service.deleteTema("9");
     }
 
+    // lab4 inclass
+
+    @Test
+    public void testAddStudentInClass() {
+        int result = service.saveStudent("10", "John", 937);
+        assertEquals(1, result);
+
+        service.deleteStudent("10");
+    }
+
+    @Test
+    public void testAddAssignmentInClass() {
+        int result = service.saveTema("10", "Assignment10", 12, 10);
+        assertEquals(1, result);
+
+        service.deleteStudent("10");
+    }
+
+    @Test
+    public void testAddGradeInClass() {
+        int result = service.saveNota("10", "10", 9, 11, "Bravooooo");
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testAllIntegrated() {
+        int result = service.saveStudent("10", "John", 937);
+        assertEquals(1, result);
+
+        int result1 = service.saveTema("10", "Assignment10", 12, 10);
+        assertEquals(1, result1);
+
+        int result2 = service.saveNota("10", "10", 9, 11, "Bravooooo");
+        assertEquals(1, result2);
+
+        service.deleteStudent("10");
+        service.deleteTema("10");
+    }
 }
